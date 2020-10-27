@@ -1,0 +1,3 @@
+#!/bin/sh
+youtube-dl -ic -o '/home/chris/Dokumenter/musik-shared/new/%(title)s.%(ext)s' --yes-playlist --download-archive /home/chris/Dokumenter/musik-shared/.downloaded --extract-audio --audio-format mp3 --audio-quality 0 https://www.youtube.com/playlist?list=PLLNaC2TixfSPclEjKHnFuktlfjiUUM2MB
+

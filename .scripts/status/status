@@ -1,0 +1,17 @@
+#!/bin/bash
+
+delim="|"
+
+if [[ "$(pulsemixer --get-mute)" = "1" ]]; then
+	echo "Muted"
+else
+pulsemixer --get-volume | awk '{printf $2" 🔊"}' && echo -n $delim
+fi
+
+acpi | cut -d" " -f4,3  | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Full//" | tr -d "\n" && echo -n $delim
+
+date +"%F %H:%M UTC: %s "
+
+#pre=$(acpi | cut -d ' ' -f4 | sed -e "s/%,//")
+
+

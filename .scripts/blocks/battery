@@ -1,0 +1,5 @@
+#!/bin/sh
+BAT=$(acpi | cut -d ' ' -f3-5 | sed -e "s/,//g;s/Discharging/🔋/;s/Charging/🔌/;s/Full/🔋✅/")
+
+printf "%s\n" "$BAT"
+

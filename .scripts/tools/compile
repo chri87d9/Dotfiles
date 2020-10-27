@@ -1,0 +1,20 @@
+#!/bin/sh
+file=$(readlink -f "$1") #Convert relative path to full path
+dir=$(dirname "$file") #Get files directory
+base="${file%.*}" #Filname without extension
+cd "$dir" || exit #Can we get into directory? if not exit
+textype() {
+	pdflatex --output-directory="$dir" "$base" &&
+	grep -i addbibresource "$file" >/dev/null &&
+	biber --input-directory "$dir" "$base" &&
+	pdflatex --output-directory="$dir" "$base" &&
+	pdflatex --output-directory="$dir" "$base"
+}
+
+case "$file" in
+ 	#*\.ms) refer -PS -e "$file" | groff -me -ms -kejpt -T pdf > "$base".pdf ;;
+ 	#*\.mom) refer -PS -e "$file" | groff -mom -kejpt -T pdf > "$base".pdf ;;
+	*\.rmd) echo "require(rmarkdown); render('$file')" | R -q --vanilla ;;
+	*\.tex) textype "$file" ;;
+	*\.md) pandoc "$file" --pdf-engine=xelatex -o "$base".pdf ;;
+esac

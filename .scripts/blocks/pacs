@@ -1,0 +1,2 @@
+#!/bin/sh
+pacman -Qu | wc -l | sed 's/^/📦/;s/^📦0//'

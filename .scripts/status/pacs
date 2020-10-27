@@ -1,0 +1,15 @@
+#!/bin/sh
+pacman -Qu | wc -l | sed 's/^/📦/;s/^📦0//'
+
+
+### ADD TO /usr/share/libalpm/hooks/<name>
+##   [Trigger]
+##   Operation = Upgrade
+##   Type = Package
+##   Target = *
+##   
+##   [Action]
+##   Description = Updating statusbar...
+##   When = PostTransaction
+##   Exec = /usr/bin/pkill -RTMIN+5 dwmblocks
+##   
