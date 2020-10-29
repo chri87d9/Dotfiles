@@ -1,9 +1,6 @@
 export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH:${HOME}/.local/bin/"
 export EDITOR="nvim"
 export TERM=st-256color
-export NNN_BMS="h:~;d:~/Dropbox;a:~/Dropbox/AU;D:~/Dokumenter"
-export NNN_COLORS="2136"
-export NNN_PLUG='x:_chmod +x $nnn;'
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"
 export XDG_DATA_HOME="$HOME/.local/share"
