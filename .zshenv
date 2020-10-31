@@ -173,3 +173,4 @@ ex=:\
 *.pdf=:\
 *.nix=:\
 "
+export GTK_THEME=Arc:dark
