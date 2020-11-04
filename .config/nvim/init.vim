@@ -102,9 +102,10 @@ autocmd FileType markdown setlocal formatoptions=ctnqro
 "}}}
 
 "LATEX{{{
-
+map <C-c> :w \| make<CR>
 let  g:tex_flavor = "latex"
 autocmd FileType tex set wrap linebreak nolist
+autocmd FileType tex inoremap <S-Tab> <C-n>
 
 
 "compileing and spellcheck
@@ -157,53 +158,44 @@ autocmd FileType tex inoremap ;nu \begin{enumerate}<Enter>\end{enumerate}<Enter>
 autocmd FileType tex inoremap ;it \begin{itemize}<Enter>\end{itemize}<Enter><Enter><++><Esc>?item<Enter>O\item
 autocmd FileType tex inoremap ;ta \begin{tabular}{}<Enter><++><Enter>\end{tabular}<Enter><++><Esc>?{}<CR>a
 autocmd FileType tex inoremap ;tab \begin{table}[h]<CR>\centering<CR>\caption{<++>}<CR>\label{fig:<++>}<CR>\end{table}<CR><++><Esc>?caption<CR>O
-
 autocmd FileType tex inoremap ;ce \begin{center}<Enter>\end{center}<Enter><++><Esc>?cen<CR>O
 autocmd FileType tex inoremap ;fi \begin{figure}[]<Enter>\centering<Enter>\includegraphics[width=<++>\textwidth]{<++>}<Enter>\caption{<++>}<Enter>\label{fig:<++>}<Enter>\end{figure}<Enter><Enter><++><Esc>?re}[<Enter>f[ci[
 autocmd FileType tex inoremap ;mp \begin{minipage}[]<Enter><++><Enter>\end{minipage}<Enter><Enter><++><Esc>?[]<CR>a
-
 autocmd FileType tex inoremap ;i \textit{}<Space><++><Esc>F}i
 autocmd FileType tex inoremap ;b \textbf{}<Space><++><Esc>F}i
 autocmd FileType tex inoremap ;l \\<Enter>
 autocmd FileType tex inoremap ;pa <Enter>\bigskip<Enter><Enter>
 autocmd FileType tex inoremap ;s \section{}<Enter><Enter><++><Esc>?}<Enter>i
 autocmd FileType tex inoremap ;ss \subsection{}<Enter><Enter><++><Esc>?}<Enter>i
-
 autocmd FileType tex inoremap ;al \begin{align*}<Enter>\end{align*}<Enter><++><Esc>?gn*<Enter>O
 autocmd FileType tex inoremap ;aln \begin{align}<Enter>\end{align}<Enter><++><Esc>?align<Enter>O
 autocmd FileType tex inoremap ;sp \begin{split}<Enter>\end{split}<Enter><++><Esc>?it}<Enter>O
-
-"Equations{{{
-
 autocmd FileType tex inoremap ;e $$<++><Esc>F$i
 autocmd FileType tex inoremap ;eq \begin{equation*}<Enter>\end{equation*}<Enter><Enter><++><Esc>?tion<Enter>O
 autocmd FileType tex inoremap ;eqn \begin{equation}\label{eq:}<Enter><++><Enter>\end{equation}<Enter><++><Esc>?:<Enter>a
 autocmd FileType tex inoremap ;ga \begin{gathered}<Enter>\end{gathered}<Esc>?red<Enter>O
-autocmd FileType tex inoremap ;f \frac{}{<++>}<++><Esc>F}F}i
-autocmd FileType tex inoremap ;df \dfrac{}{<++>}<++><Esc>F}F}i
-autocmd FileType tex inoremap ;c \cdot
-autocmd Filetype tex inoremap ;d _{}<++><Esc>F}i
-autocmd Filetype tex inoremap ;u ^{}<++><Esc>F}i
 
 
-autocmd FileType tex inoremap ;br \bra{}<++><Esc>F}i
-autocmd FileType tex inoremap ;ke \ket{}<++><Esc>F}i
-autocmd FileType tex inoremap ;bk \braket{}<++><Esc>F}i
-
-autocmd Filetype tex inoremap ;pma \begin{pmatrix}<Enter>\end{pmatrix}<Enter><++><Esc>?rix<Enter>O
-autocmd Filetype tex inoremap ;bma \begin{bmatrix}<Enter>\end{pmatrix}<Enter><++><Esc>?rix<Enter>O
-
-autocmd Filetype tex inoremap ;le \left
-autocmd Filetype tex inoremap ;ri \right
-
-"}}}
 
 "}}}
 
 
 "MATH{{{
+"autocmd FileType tex inoremap ;c \cdot
+autocmd FileType tex inoremap <C-f> \frac{}{<++>}<++><Esc>F}F}i
+autocmd Filetype tex inoremap <C-l> _{}<++><Esc>F}i
+autocmd Filetype tex inoremap <C-h> ^{}<++><Esc>F}i
+"autocmd FileType tex inoremap ;br \bra{}<++><Esc>F}i
+"autocmd FileType tex inoremap ;ke \ket{}<++><Esc>F}i
+"autocmd FileType tex inoremap ;bk \braket{}<++><Esc>F}i
+"autocmd Filetype tex inoremap ;pma \begin{pmatrix}<Enter>\end{pmatrix}<Enter><++><Esc>?rix<Enter>O
+"autocmd Filetype tex inoremap ;bma \begin{bmatrix}<Enter>\end{pmatrix}<Enter><++><Esc>?rix<Enter>O
+"autocmd Filetype tex inoremap <C-l> \left
+"autocmd Filetype tex inoremap <C-r> \right
 
 "greek_letters{{{
+
+
 autocmd Filetype tex inoremap <leader><leader>a \alpha
 autocmd Filetype tex inoremap <leader><leader>n \nu
 autocmd Filetype tex inoremap <leader><leader>b \beta
@@ -236,27 +228,22 @@ autocmd Filetype tex inoremap <leader><leader>k \kappa
 autocmd Filetype tex inoremap <leader><leader>kh \chi
 autocmd Filetype tex inoremap <leader><leader>l \lambda
 autocmd Filetype tex inoremap <leader><leader>L \Lambda
-" autocmd Filetype tex inoremap <leader><leader>p \pi
-" autocmd Filetype tex inoremap <leader><leader>P \Pi
 autocmd Filetype tex inoremap <leader><leader>P \psi
 autocmd Filetype tex inoremap <leader><leader>p \Psi
 autocmd Filetype tex inoremap <leader><leader>m \mu
 autocmd Filetype tex inoremap <leader><leader>o \omega
 autocmd Filetype tex inoremap <leader><leader>O \Omega
+" autocmd Filetype tex inoremap <leader><leader>p \pi
+" autocmd Filetype tex inoremap <leader><leader>P \Pi
 "}}}
 
 "Python{{{
 
 autocmd FileType python inoremap ;p print()<++><Esc>F)i
-
 autocmd FileType python inoremap ;im import<space>
-
 autocmd FileType python nnoremap <F5> :w<Enter>:!python3 %<Enter>
-
 autocmd FileType python inoremap <F5> <esc>:w<Enter>:!python3 %<Enter>
-
 autocmd FileType python inoremap ;f for in <++>:<Enter><++> <Esc>kFra<Space>
-
 autocmd FileType python inoremap ;de def: <Enter><Tab><++><Esc>?def<Enter>f:i<Space>
 
 "}}}
