@@ -30,7 +30,6 @@ zstyle ':completion:*' menu select
 _comp_options+=(globdots)     # Include hidden files.
 zmodload zsh/complist
 zstyle ':completion:*' matcher-list '' 'm:{a-zA-Z}={A-Za-z}' 'r:|[._-]=* r:|=*' 'l:|=* r:|=*'
-compinit
 
 # History in cache directory:
 HISTSIZE=1000

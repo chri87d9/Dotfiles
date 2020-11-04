@@ -7,7 +7,7 @@ call plug#end()
 
 "Compile
 map <leader>c :w \| !compile %<CR><CR>
-inoremap <Space><Tab> <Esc>/<++><Enter>"_c4l
+inoremap <C-j> <Esc>/<++><Enter>"_c4l
 nnoremap <Space> za
 set tabstop=4 softtabstop=4
 set expandtab
@@ -130,8 +130,7 @@ autocmd FileType tex inoremap ;np \newpage
 autocmd FileType tex inoremap ;p \usepackage{}%<++><Esc>F}i
 autocmd FileType tex inoremap ;pp \usepackage[]{<++>}%<++><Esc>F]i
 autocmd FileType tex inoremap ;nc \newcommand{}[<++>]{<Enter><++><Enter>}<Esc>?{}<CR>a
-
-
+autocmd FileType tex inoremap <C-d> }<Esc>bi\begin{<Esc>yi{o\end{<C-r>"}<Cr><++><Esc>kO
 "}}}
 
 "Bib{{{
@@ -266,6 +265,17 @@ autocmd FileType python inoremap ;de def: <Enter><Tab><++><Esc>?def<Enter>f:i<Sp
 
 "}}}
 
+"HTML{{{
+
+autocmd FileType html,php inoremap ;p <p></p><++><Esc>?<p><Cr>cit
+autocmd FileType html,php inoremap ;d <div></div><++><Esc>?<div><Cr>cit
+autocmd FileType html,php inoremap ;tr <tr><Cr></tr><Cr><++><Esc>?<tr><Cr>o
+autocmd FileType html,php inoremap ;td <td></td><++><Esc>?<td><Cr>cit
+autocmd FileType html,php inoremap ;fo <form action=""><Cr><++><Cr></form><Cr><++><Esc>?""<CR>a
+autocmd FileType html,php nnoremap ,x :!tidy -q -i --show-errors 0<CR>
+
+
+"}}}
 "OCTAVE{{{
 autocmd BufRead,BufNewFile *.m,*.oct set filetype=octave
 autocmd FileType octave nnoremap <F5> :w \| term octave % <CR>
