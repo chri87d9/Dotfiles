@@ -1,5 +1,6 @@
 export PATH="$(du $HOME/.scripts/ | cut -f2 | tr '\n' ':')$PATH:${HOME}/.local/bin/"
 export EDITOR="nvim"
+export BROWSER="firefox"
 export TERM=st-256color
 export XDG_CONFIG_HOME="$HOME/.config"
 export XDG_CACHE_HOME="$HOME/.cache"

@@ -3,6 +3,7 @@
 call plug#begin('~/.config/nvim/plugged')
     Plug 'tomasiser/vim-code-dark'
     Plug 'junegunn/goyo.vim'
+    Plug 'vimwiki/vimwiki'
 call plug#end()
 
 "Compile
@@ -274,3 +275,26 @@ autocmd FileType octave inoremap <F5> <Esc>:w \| !octave %<CR>
 set completeopt-=preview
 imap ,/ </<C-X><C-O>
 imap <silent> <C-c> </<C-X><C-O><C-X><Esc>F<i
+
+"Vimwiki{{{
+
+let g:vimwiki_list = [{'path': '~/vimwiki/',
+                      \ 'syntax': 'markdown', 'ext': '.md'}]
+
+"Basic key bindings
+"
+"    <Leader>ww -- Open default wiki index file.
+"    <Leader>wt -- Open default wiki index file in a new tab.
+"    <Leader>ws -- Select and open wiki index file.
+"    <Leader>wd -- Delete wiki file you are in.
+"    <Leader>wr -- Rename wiki file you are in.
+"    <Enter> -- Follow/Create wiki link.
+"    <Shift-Enter> -- Split and follow/create wiki link.
+"    <Ctrl-Enter> -- Vertical split and follow/create wiki link.
+"    <Backspace> -- Go back to parent(previous) wiki link.
+"    <Tab> -- Find next wiki link.
+"    <Shift-Tab> -- Find previous wiki link.
+
+
+
+"}}}

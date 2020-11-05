@@ -68,7 +68,7 @@ static Key keys[] = {
 	{ MODKEY,                       XK_d,      spawn,          {.v = dmenucmd } },
 	{ MODKEY|ShiftMask,		        XK_p,      spawn,          SHCMD("import ~/Dokumenter/Billeder/$(date +'%d%m%Y-%H%M%S').png")},
 	{ MODKEY,		                XK_Return, spawn,          {.v = termcmd } },
-	{ MODKEY,		                XK_f,	   spawn,          SHCMD("brave") },
+	{ MODKEY,		                XK_f,	   spawn,          SHCMD("$BROWSER") },
 	{ MODKEY,		                XK_r,	   spawn,          SHCMD("st -e lf") },
 	{ MODKEY,		                XK_plus,   spawn,          SHCMD("amixer sset Master 5%+ && pkill -RTMIN+10 dwmblocks &")},
 	{ MODKEY,		                XK_minus,  spawn,          SHCMD("amixer sset Master 5%- && pkill -RTMIN+10 dwmblocks &")},
