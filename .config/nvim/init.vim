@@ -9,6 +9,7 @@ call plug#end()
 "Compile
 map <leader>c :w \| !compile %<CR><CR>
 inoremap <C-j> <Esc>/<++><Enter>"_c4l
+noremap <C-j> /<++><Enter>"_c4l
 nnoremap <Space> za
 set tabstop=4 softtabstop=4
 set expandtab
