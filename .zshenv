@@ -10,6 +10,10 @@ export ZDOTDIR="$XDG_CONFIG_HOME"/zsh
 export GNUPGHOME="$XDG_DATA_HOME"/gnupg
 export IPYTHONDIR="$XDG_CONFIG_HOME"/jupyter
 export JUPYTER_CONFIG_DIR="$XDG_CONFIG_HOME"/jupyter
+
+#Move GO
+export GOPATH="$XDG_DATA_HOME"/go
+
 export XAUTHORITY="$XDG_RUNTIME_DIR"/Xauthority
 export LESSHISTFILE="-"
 export LF_ICONS="\
