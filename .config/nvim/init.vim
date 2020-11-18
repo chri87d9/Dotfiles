@@ -18,6 +18,8 @@ set autoindent
 set smartindent
 set incsearch
 
+noremap <leader>gf :e <cfile><cr>
+noremap gp :! xdg-open <cfile><cr><cr>
 "For find
 set path+=**
 
