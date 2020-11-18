@@ -20,6 +20,7 @@ set incsearch
 
 noremap <leader>gf :e <cfile><cr>
 noremap gp :! xdg-open <cfile><cr><cr>
+noremap <leader>d :r !date +'\#\# \%d/\%m/\%C (\%V)'<cr>o
 "For find
 set path+=**
 
